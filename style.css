@@ -1,0 +1,74 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.sudoku-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    border: 2px solid #333;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.sudoku-cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-sizing: border-box;
+    user-select: none; /* Impedisce la selezione del testo */
+}
+
+.sudoku-cell.given {
+  background-color: #e0e0e0; /* Grigio leggermente scuro per i numeri dati */
+  color: #000; /* Nero per i numeri dati */
+}
+
+
+.sudoku-cell:nth-child(3n) {
+    border-right: 2px solid #333;
+}
+.sudoku-cell:nth-child(9n) {
+    border-right: 2px solid #333;
+}
+
+.sudoku-grid div:nth-child(n+19):nth-child(-n+27),
+.sudoku-grid div:nth-child(n+46):nth-child(-n+54),
+.sudoku-grid div:nth-child(n+73):nth-child(-n+81) {
+  border-bottom: 2px solid #333;
+}
+
+.input-cell {
+    border: 1px solid #888;
+    font-size: 1.2em;
+    color: #444;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box; /* Include padding e border nella larghezza e altezza */
+}
+
+.input-cell:focus {
+    outline: none;
+    border: 2px solid #007bff; /* bordo blu al focus */
+}
+
+/* Stili per evidenziare le celle non valide */
+.invalid-cell {
+  background-color: #ffcccc; /* Sfondo rosso pallido per le celle non valide */
+}
+.button-container {
+    margin-top: 20px;
+    text-align: center;
+}
